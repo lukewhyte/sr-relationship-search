@@ -1,6 +1,15 @@
 import React from 'react'
 import { Nft } from '../interfaces'
 
+const getArtworkPageUrl = (universalTokenId: string) => {
+  const base = 'https://superrare.com'
+  const [contract, tokenId] = universalTokenId.split('-')
+  if (!contract || !tokenId) {
+    return base
+  }
+  return `${base}/${contract}/${tokenId}`
+}
+
 const CardArtworks = ({
   nfts,
 }: {
@@ -22,13 +31,15 @@ const CardArtworks = ({
             relative
             mr-[4px]
           '>
-            <img
-              alt={nft.metadata.title}
-              loading='lazy'
-              decoding='async'
-              src={nft.metadata.proxyImageSmallUri}
-              className='object-cover h-full w-full align-middle'
-            />
+            <a href={getArtworkPageUrl(nft.universalTokenId)} target='_blank'>
+              <img
+                alt={nft.metadata.title}
+                loading='lazy'
+                decoding='async'
+                src={nft.metadata.proxyImageSmallUri}
+                className='object-cover h-full w-full align-middle'
+              />
+            </a>
           </div>
         ))}
       </div>
