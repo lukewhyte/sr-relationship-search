@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'founders-grotesk-regular';
+  src: local('founders-grotesk-regular'),
+       url('./fonts/founders-grotesk-regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'founders-grotesk-medium';
+  src: local('founders-grotesk-medium'),
+       url('./fonts/founders-grotesk-medium.woff2') format('woff2');
+}
